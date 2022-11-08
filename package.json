@@ -1,0 +1,40 @@
+{
+  "name": "nest-injection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "start:dev": "nodemon",
+    "prebuild": "npm run verify && npm t",
+    "pretest": "rimraf dist/test && tsc -p tsconfig-es5.test.json && tsc -p tsconfig-es2015.test.json",
+    "test": "jest",
+    "test:dev": "jest --watchAll",
+    "format": "eslint -c .eslintrc.js src/lib/**/*.ts --fix && eslint -c .eslintrc.js test/*.ts --fix",
+    "lint": "eslint -c .eslintrc.js src/lib/**/*.ts && eslint -c .eslintrc.js test/*.ts",
+    "verify": "tsc -p tools && npm run format && npm run lint"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "28.1.6",
+    "@types/node": "18.6.1",
+    "@typescript-eslint/eslint-plugin": "5.31.0",
+    "@typescript-eslint/parser": "5.31.0",
+    "eslint": "8.20.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-jest": "26.6.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "husky": "8.0.1",
+    "jest": "28.1.3",
+    "nodemon": "2.0.19",
+    "onchange": "7.1.0",
+    "prettier": "2.6.2",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "3.0.2",
+    "run-script-os": "1.1.6",
+    "ts-jest": "28.0.7",
+    "ts-node": "10.9.1",
+    "typescript": "4.8.4"
+  }
+}

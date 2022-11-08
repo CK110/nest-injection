@@ -1,0 +1,19 @@
+describe('Reflect Api', () => {
+  test('Reflect.get(target, name, receiver)', async () => {
+    const myObject = {
+      foo: 1,
+      bar: 2,
+      get baz() {
+        return this.foo + this.bar;
+      },
+    };
+    const myReceiverObject = {
+      foo: 4,
+      bar: 4,
+    };
+    expect(Reflect.get(myObject, 'foo')).toEqual(1);
+    expect(Reflect.get(myObject, 'bar')).toEqual(2);
+    expect(Reflect.get(myObject, 'baz')).toEqual(3);
+    expect(Reflect.get(myObject, 'baz', myReceiverObject)).toEqual(8);
+  });
+  })
